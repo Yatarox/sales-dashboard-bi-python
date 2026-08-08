@@ -9,7 +9,7 @@ class DataLoader:
         if dataset_path:
             self.filepath = Path(dataset_path)
         else:
-            download_path = kagglehub.dataset_download("noopurbhatt/retail-sales-dataset",output_dir="data/raw")
+            download_path = kagglehub.dataset_download("noopurbhatt/retail-sales-dataset",output_dir="data/raw",force_download=True)
             self.filepath = Path(download_path)
         
         self.df = None
