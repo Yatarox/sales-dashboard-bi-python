@@ -9,7 +9,7 @@ class DataLoader:
         if dataset_path:
             self.filepath = Path(dataset_path)
         else:
-            download_path = kagglehub.dataset_download("noopurbhatt/retail-sales-dataset")
+            download_path = kagglehub.dataset_download("noopurbhatt/retail-sales-dataset",output_dir="data/raw")
             self.filepath = Path(download_path)
         
         self.df = None
@@ -84,6 +84,7 @@ if __name__ == "__main__":
     info = loader.get_basic_info()
     print(f"Shape : {info['shape']}")
     print(f"Colonnes : {info['columns']}")
+    print(f"Types de données : {info['dtypes']}")
     
     print("\n📊 RAPPORT QUALITÉ :")
     quality = loader.get_quality_report()
